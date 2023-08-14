@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const db_username = process.env.DB_USERNAME;
-const db_password = process.env.DB_USERNAME;
+const db_password = process.env.DB_PASSWORD;
 
 const Connection = () => {
   const MONGODB_URI = `mongodb+srv://${db_username}:${db_password}@todo.manbenk.mongodb.net/?retryWrites=true&w=majority`;
@@ -19,7 +19,7 @@ const Connection = () => {
     console.log("Database disconnected.");
   });
 
-  mongoose.connection.on("error", () => {
+  mongoose.connection.on("error", (error) => {
     console.log("Error while connecting with the database.", error.message);
   });
 };
