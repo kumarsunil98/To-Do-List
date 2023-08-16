@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { getAllTodos } from "../redux/actions/index";
 import { useDispatch, useSelector } from "react-redux";
-
+import Todo from "./Todo";
 export const Todos = () => {
   const dispatch = useDispatch();
 
-  const alltodos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos);
 
   useEffect(() => {
     dispatch(getAllTodos());
@@ -13,8 +13,8 @@ export const Todos = () => {
   return (
     <article>
       <ul>
-        {alltodos.map((todo) => {
-          return <li>{todo.data}</li>;
+        {todos.map((todo) => {
+          return <Todo key={todo._id} todo={todo} />;
         })}
       </ul>
     </article>
