@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADDNEW_TODO, GETALL_TODO } from "./type";
+import { ADDNEW_TODO, GETALL_TODO, TOOGGLE_TODO, UPDATE_TODO } from "./type";
 const API_URL = "http://localhost:8000";
 export const addNewTodo = (data) => async (dispatch) => {
   try {
@@ -16,5 +16,22 @@ export const getAllTodos = () => async (dispatch) => {
     dispatch({ type: GETALL_TODO, payload: res.data });
   } catch (error) {
     console.log("Error while calling getAllTodos API", error.message);
+  }
+};
+
+export const toggleTodo = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`${API_URL}/todos/${id}`);
+    dispatch({ type: TOOGGLE_TODO, payload: res.data });
+  } catch (error) {
+    console.log("Error while calling toggleTodo API", error.message);
+  }
+};
+export const updateTodo = (id, data) => async (dispatch) => {
+  try {
+    const res = await axios.put(`${API_URL}/todos/${id}`, { data });
+    dispatch({ type: UPDATE_TODO, payload: res.data });
+  } catch (error) {
+    console.log("Error while calling toggleTodo API", error.message);
   }
 };
