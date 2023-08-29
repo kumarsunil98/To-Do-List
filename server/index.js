@@ -1,4 +1,4 @@
-import express, { urlencoded } from "express";
+import express from "express";
 import Connection from "./database/db.js";
 import cors from "cors";
 import Routes from "./routes/route.js";

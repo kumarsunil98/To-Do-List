@@ -43,3 +43,24 @@ article{
   border: none;
   border-bottom: 1px solid #ffffff;
 }
+.button{
+  margin: 0 10px;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: rgb(96, 56, 133);
+  border: none;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+.button.selected{
+  color: #ffffff;
+  background-color: #6c6777;
+}
+.button.clear{
+  color: #ffffff;
+  background-color: #ee1630;
+  width: 170px;
+}
